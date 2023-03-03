@@ -193,31 +193,31 @@ verrá chiesta la password dell'utente con cui stiamo cercando di loggarci sulla
 <h3>monitoring.sh</h3>
 #!/bin/bash
 
-ARCH
+# ARCH
 arch=$(uname -a)
 
-CPU PHYSICAL
+# CPU PHYSICAL
 cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
 
-CPU VIRTUAL
+# CPU VIRTUAL
 cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
 
-RAM
+# RAM
 ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}')
 ram_use=$(free --mega | awk '$1 == "Mem:" {print $3}')
 ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
 
-DISK
+# DISK
 disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
 disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
 disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} { disk_t += $2} END {printf("%d"), disk_u/disk_t*100}')
 
-//CPU LOAD
+# CPU LOAD
 cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}')
 cpu_op=$(expr 100 - $cpul)
 cpu_fin=$(printf "%.1f" %cpu_op)
 
-LAST BOOT
+# LAST BOOT
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 
 # LVM USE
