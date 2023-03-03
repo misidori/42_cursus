@@ -1,7 +1,7 @@
 <h1> 🇮🇹 Note sparse </h1>
 
 <h2>Che cos'è una Virtual Machine?</h2>
-\nUna Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.
+Una Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.
 
 Questo ambiente, chiamato "macchina virtuale", viene creato dal software di virtualizzazione intercettando l'accesso a determinati componenti hardware e determinate funzionalità. Il computer fisico viene solitamente chiamato "host", mentre la macchina virtuale viene spesso chiamata "guest". La maggior parte del codice guest viene eseguito senza modifiche direttamente sul computer host e il sistema operativo guest "pensa" di essere in esecuzione su una macchina reale.
 
@@ -15,7 +15,7 @@ Supporto del sistema operativo. Con un virtualizzatore come VirtualBox, è possi
 Consolidamento dell'infrastruttura. Poiché le prestazioni complete dei computer di oggi raramente sono necessarie a tempo pieno, invece di far funzionare molti di questi computer fisici, è possibile "imballare" molte macchine virtuali su pochi host potenti e bilanciare i carichi tra di loro. Ciò può risparmiare molti costi hardware: ad esempio, consolidando molti server in pochi.
 Test e ripristino in caso di disastro. Soprattutto con l'uso degli snapshot, è possibile sperimentare con un ambiente informatico eseguendolo come macchina virtuale. Se qualcosa va storto, è possibile tornare facilmente a uno snapshot precedente e evitare la necessità di frequenti backup e ripristini.
 
-Qual è lo scopo di una Virtual Machine?
+<h3>Qual è lo scopo di una Virtual Machine?</h3>
 Lo scopo principale di una Virtual Machine (VM) è quello di creare un ambiente virtuale che emuli un intero sistema informatico, incluso il sistema operativo, le applicazioni e le librerie, all'interno di un altro sistema operativo ospite. Ciò consente di eseguire più sistemi operativi su un singolo sistema fisico, consentendo l'isolamento e la gestione delle risorse del sistema, come CPU, RAM, storage e rete.
 
 Ci sono molte ragioni per utilizzare una VM, tra cui:
