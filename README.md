@@ -4,4 +4,4 @@
 I progetti che ho completato alla scuola 42 Roma Luiss
 
 <h2>🇬🇧 English</h2>
-The project that I have accomplished in the 42 Roma Luiss school
+The projects that I completed in the 42 Roma Luiss school
