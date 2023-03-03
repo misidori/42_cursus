@@ -99,11 +99,51 @@ To                             Action            From
 4242                       ALLOW       Anywhere                  
 4242 (v6)                ALLOW       Anywhere (v6)
 
-In questo esempio, il firewall UFW è attivo e ci sono alcune regole configurate che consentono il traffico attraverso le porte 22, 80 e 443 su IPv4 e IPv6.
+In questo esempio, il firewall UFW è attivo e ci sono alcune regole configurate che consentono il traffico attraverso le porte 4242.
 
 Il comando ufw status è utile per verificare lo stato del firewall UFW e per identificare eventuali problemi di configurazione o errori nelle regole del firewall.
 
+Per aggiungere una porta:
+sudo ufw allow 8080
+Esempio:
+root@misidori42:/home/misidori# sudo ufw allow 8080
+Rule added
+Rule added (v6)
+root@misidori42:/home/misidori# sudo ufw status
+Status: active
 
+To                         Action      From
+--                         ------      ----
+4242                       ALLOW       Anywhere                  
+8080                       ALLOW       Anywhere                  
+4242 (v6)                  ALLOW       Anywhere (v6)             
+8080 (v6)                  ALLOW       Anywhere (v6)
+
+Per chiudere una porta:
+sudo ufw deny 8080
+Esempio:
+root@misidori42:/home/misidori# sudo ufw deny 8080
+Rule updated
+Rule updated (v6)
+root@misidori42:/home/misidori# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+4242                       ALLOW       Anywhere                  
+8080                       DENY        Anywhere                  
+4242 (v6)                  ALLOW       Anywhere (v6)             
+8080 (v6)                  DENY        Anywhere (v6)
+
+Per eliminare una porta:
+sudo ufw delete deny 8080
+root@misidori42:/home/misidori# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+4242                       ALLOW       Anywhere                  
+4242 (v6)                  ALLOW       Anywhere (v6) 
 
 <h3>Per verificare il sistema operativo montato:</h3>
 root@misidori42:/home/misidori# head -n 2 /etc/os-release
