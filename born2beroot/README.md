@@ -1,4 +1,4 @@
-<h1> 🇮🇹 Note sparse </h1>
+<h1> 🇮🇹 Appunti </h1>
 
 <h3>Che cos'è una Virtual Machine?</h3>
 Una Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.
