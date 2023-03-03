@@ -193,7 +193,7 @@ verrá chiesta la password dell'utente con cui stiamo cercando di loggarci sulla
 <h3>monitoring.sh</h3>
 #!/bin/bash
 
-# ARCH
+&#35 ARCH
 arch=$(uname -a)
 
 # CPU PHYSICAL
