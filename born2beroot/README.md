@@ -1,6 +1,6 @@
 <h1> 🇮🇹 Note sparse </h1>
 
-<h2>Che cos'è una Virtual Machine?</h2>
+<h3>Che cos'è una Virtual Machine?</h3>
 Una Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.
 
 Questo ambiente, chiamato "macchina virtuale", viene creato dal software di virtualizzazione intercettando l'accesso a determinati componenti hardware e determinate funzionalità. Il computer fisico viene solitamente chiamato "host", mentre la macchina virtuale viene spesso chiamata "guest". La maggior parte del codice guest viene eseguito senza modifiche direttamente sul computer host e il sistema operativo guest "pensa" di essere in esecuzione su una macchina reale.
@@ -28,7 +28,7 @@ Sicurezza: le VM possono essere utilizzate per l'isolamento e la sicurezza, in c
 
 In sintesi, una VM consente di creare ambienti di lavoro isolati e sicuri, migliorando l'efficienza e la gestione delle risorse del sistema.
 
-Quali sono le differenze base tra CentOS e Debian come sistemi operativi?
+<h3>Quali sono le differenze base tra CentOS e Debian come sistemi operativi?</h3>
 CentOS e Debian sono entrambi sistemi operativi basati su Linux, ma ci sono alcune differenze fondamentali tra di loro:
 
 Origine: CentOS è basato su Red Hat Enterprise Linux (RHEL), mentre Debian è stato sviluppato indipendentemente.
@@ -68,13 +68,14 @@ Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on 0.0.0.0 port 4242.
 Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on :: port 4242.
 Feb 27 04:33:07 misidori42 systemd[1]: Started OpenBSD Secure Shell server.
 
-Che cos'é un firewall?
+<h3>Che cos'é un firewall?</h3>
 Un firewall è un software o un hardware che agisce come una barriera di sicurezza tra una rete di computer e Internet. Il suo scopo principale è quello di proteggere la rete bloccando l'accesso non autorizzato da parte di utenti esterni o di programmi dannosi.
 
 Il firewall può essere configurato per bloccare il traffico in base a determinati criteri, come l'indirizzo IP di origine, il tipo di protocollo o la porta utilizzata per la connessione. In questo modo, il firewall può prevenire attacchi informatici come hacking, malware e phishing, proteggendo la rete e i dati sensibili che contiene.
 
 Il firewall può anche essere configurato per limitare l'accesso a determinati siti web o applicazioni da parte degli utenti della rete, aiutando così a controllare l'uso della rete e migliorare la produttività dei dipendenti. In generale, il firewall è un componente importante della sicurezza informatica e della protezione della privacy online.
-Che cos'é il UFW firewall?
+
+<h3>Che cos'é il UFW firewall?</h3>
 UFW (Uncomplicated Firewall) è un firewall basato su IPtables che fornisce un'interfaccia semplificata per configurare le regole di filtraggio dei pacchetti su un sistema Linux.
 
 UFW viene installato di default in alcune distribuzioni Linux, come ad esempio Ubuntu, e può essere gestito tramite il comando "ufw" da riga di comando o tramite GUI.
@@ -83,7 +84,7 @@ Le regole di UFW consentono di specificare quali porte e protocolli di rete sono
 
 UFW è utile per migliorare la sicurezza del sistema, in quanto permette di bloccare l'accesso non autorizzato alle porte di rete e di limitare il traffico di rete entrante e uscente. Tuttavia, è importante ricordare che UFW è solo uno strumento di sicurezza tra molti altri che dovrebbero essere utilizzati per proteggere un sistema Linux.
 
-A cosa serve il comando ufw status?
+<h3>A cosa serve il comando ufw status?</h3>
 Il comando ufw status è un comando utilizzato per verificare lo stato del firewall UFW (Uncomplicated Firewall) su un sistema Linux. UFW è un frontend semplificato per iptables e consente agli amministratori di sistema di configurare rapidamente e facilmente il firewall di sistema.
 
 Il comando ufw status restituisce lo stato corrente del firewall UFW, inclusi i profili attivi e le regole configurate.
@@ -104,7 +105,7 @@ Il comando ufw status è utile per verificare lo stato del firewall UFW e per id
 
 
 
-Per verificare il sistema operativo montato:
+<h3>Per verificare il sistema operativo montato:</h3>
 root@misidori42:/home/misidori# head -n 2 /etc/os-release
 PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
 NAME="Debian GNU/Linux"
@@ -114,7 +115,7 @@ root@misidori42:/home/misidori# uname -v
 #1 SMP Debian 5.10.162-1 (2023-01-21)
 Comandi da sapere:
 
-Creare un nuovo utente:
+<h3>Creare un nuovo utente:</h3>
 sudo adduser "name_user"
 Esempio:
 root@misidori42:/home/misidori# sudo adduser scabbol
@@ -128,13 +129,13 @@ Retype new password: ****
 passwd: password updated successfully
 Changing the user information for scabbol
 
-Vedere la lista degli utenti:
+<h3>Vedere la lista degli utenti:</h3>
 cat /etc/passwd
 
-Creare un nuovo gruppo:
+<h3>Creare un nuovo gruppo:</h3>
 sudo addgroup "group_name"
 
-Aggiungere un utente in un gruppo:
+<h3>Aggiungere un utente in un gruppo:</h3>
 sudo adduser name_user group_name
 Esempio:
 root@misidori42:/home/misidori# sudo adduser scabbol user42
@@ -142,13 +143,13 @@ Adding user `scabbol' to group `user42' ...
 Adding user scabbol to group user42
 Done.
 
-Vedere la lista di utenti di un gruppo:
+<h3>Vedere la lista di utenti di un gruppo:</h3>
 getent group group_name
 Esempio:
 root@misidori42:/home/misidori# getent group user42
 user42:x:1001:misidori,scabbol
 
-Eliminare un utente:
+<h3>Eliminare un utente:</h3>
 sudo deluser user_name
 Esempio:
 root@misidori42:/home/misidori# sudo deluser scabbol
@@ -166,20 +167,20 @@ root@misidori42:/home/misidori# sudo deluser scabbol user42
 Removing user `scabbol' from group `user42' ...
 Done.
 
-Eliminare un gruppo:
+<h3>Eliminare un gruppo:</h3>
 sudo groupdel group_name
 Esempio:
 root@misidori42:/home/misidori# sudo groupdel user42
 
-Vedere il nome dell'host:
+<h3>Vedere il nome dell'host:</h3>
 root@misidori42:/home/misidori# hostname
 misidori42
 
-Modificare il nome dell'host:
+<h3>Modificare il nome dell'host:</h3>
 sudo nano /etc/hostname
 Esempio:
 
-Cambiare password dell'utente root:
+<h3>Cambiare password dell'utente root:</h3>
 sudo passwd root
 
 
@@ -189,7 +190,7 @@ verrá chiesta la password dell'utente con cui stiamo cercando di loggarci sulla
 
 
 
-monitoring.sh 
+<h3>monitoring.sh</h3>
 #!/bin/bash
 
 # ARCH
@@ -254,20 +255,20 @@ In output si avrá:
 Broadcast message from root@misidori42 (somewhere) (Mon Feb 27 03:00:02 2023): 
                                                                                
 	#Architecture: Linux misidori42 5.10.0-21-amd64 #1 SMP Debian 5.10.162-1 (2023-01-21) x86_64 GNU/Linux
-		#CPU physical: 1
-		#vCPU: 1
-		#Memory Usage: 171/1024MB (16.70%)
-		#Disk Usage: 1997/25.7Gb (7%)
-		#CPU load: 0.0%
-		#Last boot: 2023-02-26 22:19
-		#LVM use: yes
-		#Connections TCP: 2 ESTABLISHED
-		#User log: 3
-		#Network: IP 10.0.2.15  (08:00:27:f0:28:67)
-		#Sudo: 108 cmd
+	#CPU physical: 1
+	#vCPU: 1
+	#Memory Usage: 171/1024MB (16.70%)
+	#Disk Usage: 1997/25.7Gb (7%)
+	#CPU load: 0.0%
+	#Last boot: 2023-02-26 22:19
+	#LVM use: yes
+	#Connections TCP: 2 ESTABLISHED
+	#User log: 3
+	#Network: IP 10.0.2.15  (08:00:27:f0:28:67)
+	#Sudo: 108 cmd
 
 
-Che cos'é il comando wall in bash?
+<h3>Che cos'é il comando wall in bash?</h3>
 Il comando wall in Bash è un'utilità che consente di inviare un messaggio a tutti gli utenti collegati ad un sistema Unix o Linux. La parola "wall" è l'abbreviazione di "write all" e il comando permette di scrivere un messaggio su tutti i terminali degli utenti collegati.
 
 Il modo più semplice per utilizzare il comando wall è il seguente:
@@ -313,7 +314,7 @@ Vediamo il codice passo per passo:
 
 "wall": questo comando visualizza il messaggio a video utilizzando il comando "wall". Il messaggio contiene le informazioni raccolte dalle variabili precedenti, formattate in modo da essere facilmente leggibili.
 
-Che cos'è il comando awk?
+<h3>Che cos'è il comando awk?</h3>
 Awk è un potente strumento di manipolazione di testo che viene utilizzato principalmente per l'estrazione e l'elaborazione di dati strutturati in file di testo. Awk è stato sviluppato originariamente presso i laboratori Bell di AT&T e il nome "awk" deriva dalle iniziali dei nomi dei suoi creatori: Alfred Aho, Peter Weinberger e Brian Kernighan.
 
 Awk legge il file di input riga per riga e applica un insieme di regole specificate dall'utente, chiamate "pattern-action", per elaborare i dati. I pattern sono espressioni regolari che corrispondono a un certo tipo di righe nel file di input, mentre l'action definisce l'azione da eseguire su tali righe. L'azione può includere l'elaborazione dei dati, la stampa di output e la manipolazione delle variabili di Awk.
@@ -321,5 +322,3 @@ Awk legge il file di input riga per riga e applica un insieme di regole specific
 Awk è molto flessibile e può essere utilizzato per eseguire molte operazioni comuni di elaborazione di dati, come l'ordinamento, l'aggregazione, il filtraggio e la trasformazione. È anche molto utile per elaborare grandi quantità di dati e per automatizzare il lavoro ripetitivo su file di testo.
 
 In sintesi, il comando "awk" è uno strumento di linea di comando che permette di manipolare file di testo in modo potente e flessibile, utilizzando espressioni regolari e regole personalizzate.
-
-
