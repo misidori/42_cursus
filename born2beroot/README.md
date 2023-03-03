@@ -255,24 +255,114 @@ In output si avrá:
 Broadcast message from root@misidori42 (somewhere) (Mon Feb 27 03:00:02 2023): 
                                                                                
 	#Architecture: Linux misidori42 5.10.0-21-amd64 #1 SMP Debian 5.10.162-1 (2023-01-21) x86_64 GNU/Linux
-	#CPU physical: 1
-	#vCPU: 1
-	#Memory Usage: 171/1024MB (16.70%)
-	#Disk Usage: 1997/25.7Gb (7%)
-	#CPU load: 0.0%
-	#Last boot: 2023-02-26 22:19
-	#LVM use: yes
-	#Connections TCP: 2 ESTABLISHED
-	#User log: 3
-	#Network: IP 10.0.2.15  (08:00:27:f0:28:67)
-	#Sudo: 108 cmd
+		#CPU physical: 1
+		#vCPU: 1
+		#Memory Usage: 171/1024MB (16.70%)
+		#Disk Usage: 1997/25.7Gb (7%)
+		#CPU load: 0.0%
+		#Last boot: 2023-02-26 22:19
+		#LVM use: yes
+		#Connections TCP: 2 ESTABLISHED
+		#User log: 3
+		#Network: IP 10.0.2.15  (08:00:27:f0:28:67)
+		#Sudo: 108 cmd
 
+Che cos'è il comando awk?
+Awk è un potente strumento di manipolazione di testo che viene utilizzato principalmente per l'estrazione e l'elaborazione di dati strutturati in file di testo. 
 
-<h3>Che cos'é il comando wall in bash?</h3>
+Awk legge il file di input riga per riga e applica un insieme di regole specificate dall'utente, chiamate "pattern-action", per elaborare i dati. I pattern sono espressioni regolari che corrispondono a un certo tipo di righe nel file di input, mentre l'action definisce l'azione da eseguire su tali righe. L'azione può includere l'elaborazione dei dati, la stampa di output e la manipolazione delle variabili di Awk.
+
+Che cosa fa il simbolo $ in bash?
+Il simbolo "$?" è una variabile shell speciale in Bash (e in altre shell Unix-like) che contiene il codice di uscita dell'ultimo comando eseguito.
+
+Che cosa fa il comando grep?
+grep è un comando di ricerca di testo utilizzato nei sistemi operativi Unix e Unix-like, incluso Linux. Il nome "grep" è l'abbreviazione di "global regular expression print". Il comando grep cerca all'interno di uno o più file (o dell'output di un altro comando) per un pattern specificato dall'utente e stampa le righe che contengono corrispondenze con il pattern.
+L'opzione -v del comando grep indica di selezionare tutte le righe che NON contengono il pattern cercato.
+
+Vediamo il codice passo per passo:
+
+#!/bin/bash
+questa è la dichiarazione del tipo di shell che verrà utilizzata per eseguire lo script.
+
+# ARCH
+arch=$(uname -a)
+Questa variabile contiene la stringa di output del comando "uname -a" che restituisce informazioni sull'architettura del sistema operativo.
+
+# CPU PHYSICAL
+cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
+questa variabile contiene il numero di CPU fisiche presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "physical id" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
+
+# CPU VIRTUAL
+cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
+questa variabile contiene il numero di CPU virtuali presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "processor" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
+
+# RAM
+ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}')
+ram_use=$(free --mega | awk '$1 == "Mem:" {print $3}')
+ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
+questa sezione raccoglie informazioni sulla memoria RAM. 
+La variabile "ram_total" contiene la quantità totale di RAM installata nel sistema, ottenuta dal comando "free --mega" e filtrata con il comando "awk". 
+Il comando free --mega restituisce informazioni sulla memoria del sistema. In particolare, l'opzione --mega indica di mostrare i risultati in Megabyte invece di Kilobyte.
+La variabile "ram_use" contiene la quantità di RAM attualmente utilizzata. La variabile "ram_percent" contiene la percentuale di RAM utilizzata.
+
+# DISK
+disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
+disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
+disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} { disk_t += $2} END {printf("%d"), disk_u/disk_t*100}')
+Il comando df -m viene utilizzato per estrarre la quantità totale di spazio su disco disponibile e la quantità di spazio su disco utilizzata. Queste informazioni vengono quindi utilizzate per calcolare la percentuale di spazio su disco utilizzato.
+questa sezione raccoglie informazioni sulle unità di disco presenti nel sistema. La variabile "disk_total" contiene la quantità totale di spazio disponibile sui dischi, ottenuta dal comando "df -m" e filtrata con il comando "awk". 
+END viene utilizzato con il comando awk per eseguire un'operazione (ad esempio, un calcolo o una stampa di output) dopo che awk ha analizzato completamente il file di input. In particolare, il comando awk '{disk_t += $2} END {printf("%.1fGb\n"), disk_t/1024}' viene utilizzato per sommare le dimensioni dei file system individuati dal comando df -m e convertire il risultato da megabyte a gigabyte.
+La variabile "disk_use" contiene la quantità di spazio attualmente utilizzata. La variabile "disk_percent" contiene la percentuale di spazio utilizzato.
+
+# CPU LOAD
+cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}')
+cpu_op=$(expr 100 - $cpul)
+cpu_fin=$(printf "%.1f" %cpu_op)
+questa sezione raccoglie informazioni sulla cpu. La variabile "cpu_fin" contiene la percentuale di utilizzo della CPU approssimata a una cifra decimale.
+Il comando "vmstat 1 2" viene eseguito per leggere le statistiche di memoria 2 volte a distanza di un secondo.
+Il comando "tail -1" estrae l'ultima riga dell'output di vmstat, ovvero la riga che contiene le statistiche di memoria aggiornate.
+Il comando expr esegue l'aritmetica di shell. In questo caso, l'operazione eseguita è la sottrazione tra il valore 100 e il contenuto della variabile $cpul.
+
+# LAST BOOT
+lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
+Il comando who mostra gli utenti attualmente connessi al sistema e l'ultima volta che hanno effettuato il login.
+questa variabile contiene la data e l'ora dell'ultimo avvio del sistema. Per ottenere questa informazione, lo script cerca la stringa "system" nel file /var/log/wtmp e utilizza il comando "awk" per estrarre la data e l'ora.
+L'opzione -b del comando who mostra l'ultima volta che il sistema è stato avviato, ovvero la data e l'ora di boot del sistema.
+
+# LVM USE
+lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+questa variabile indica se il sistema utilizza la gestione logica dei volumi (LVM) per la gestione dello spazio su disco. 
+Se il sistema utilizza LVM, la variabile è impostata su "yes", altrimenti su "no". Per determinare se il sistema utilizza LVM, lo script utilizza il comando "lsblk" (che elenca tutte le unità di archiviazione presenti nel sistema, come dischi rigidi, partizioni, dispositivi USB, ecc.), quindi cerca la stringa "lvm" e conta il numero di occorrenze trovate.
+
+# TCP CONNECTIONS
+tcpc=$(ss -ta | grep ESTAB | wc -l)
+questa variabile contiene il numero di connessioni TCP in stato ESTABLISHED nel sistema. Per ottenere questa informazione, lo script utilizza il comando "ss" per visualizzare le informazioni sulle connessioni di rete, quindi cerca la stringa "ESTAB" e conta il numero di occorrenze trovate.
+ss -ta è un comando che utilizza il comando ss per mostrare tutte le connessioni TCP attive, sia in ingresso che in uscita, inclusi i socket di ascolto. La flag -t specifica che devono essere mostrate solo le connessioni TCP, mentre la flag -a specifica di mostrare anche le connessioni in ascolto.
+
+# USER LOG
+ulog=$(users | wc -w)
+questa variabile contiene il numero di utenti connessi al sistema. Per ottenere questa informazione, lo script utilizza il comando "users" per visualizzare i nomi degli utenti connessi, quindi conta il numero di parole trovate con il comando "wc -w".
+
+# NETWORK
+ip=$(hostname -I)
+mac=$(ip link | grep "link/ether" | awk '{print $2}')
+questa sezione raccoglie informazioni sulla rete. La variabile "ip" contiene l'indirizzo IP del sistema, ottenuto dal comando "hostname -I". La variabile "mac" contiene l'indirizzo MAC dell'interfaccia di rete, ottenuto dal comando "ip link".
+
+# SUDO
+cmnd=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
+questa variabile contiene il numero di comandi eseguiti con il comando "sudo" nel sistema. 
+Questo comando è composto da tre parti:
+
+journalctl _COMM=sudo: questo comando esegue una ricerca nel registro di sistema (journalctl) per tutte le voci in cui il comando sudo è stato eseguito. _COMM è un filtro che limita la ricerca solo alle voci contenenti il comando specificato.
+grep COMMAND: questo comando cerca solo le voci che contengono la parola "COMMAND". In questo modo, viene identificata la riga corrispondente all'esecuzione del comando sudo.
+wc -l: infine, il comando wc conta il numero di linee che corrispondono alla ricerca precedente. 
+Quindi, la variabile cmnd contiene il numero di comandi eseguiti con sudo nel registro di sistema.
+
+"wall": questo comando visualizza il messaggio a video utilizzando il comando "wall". Il messaggio contiene le informazioni raccolte dalle variabili precedenti, formattate in modo da essere facilmente leggibili.
+
 Il comando wall in Bash è un'utilità che consente di inviare un messaggio a tutti gli utenti collegati ad un sistema Unix o Linux. La parola "wall" è l'abbreviazione di "write all" e il comando permette di scrivere un messaggio su tutti i terminali degli utenti collegati.
 
 Il modo più semplice per utilizzare il comando wall è il seguente:
-
 wall "Messaggio da inviare a tutti gli utenti"
 
 Una volta eseguito il comando, il messaggio verrà inviato a tutti gli utenti collegati al sistema. Il messaggio verrà visualizzato sui loro terminali in modo simile a quanto segue:
@@ -281,44 +371,6 @@ Broadcast message from user@hostname
         Messaggio da inviare a tutti gli utenti
 È importante notare che per utilizzare il comando wall è necessario avere i privilegi di amministratore o di superutente.
 
-
 Il codice è uno script di bash che raccoglie informazioni sul sistema operativo e le visualizza a video tramite il comando "wall".
 
-Vediamo il codice passo per passo:
 
-"#!/bin/bash": questa è la dichiarazione del tipo di shell che verrà utilizzata per eseguire lo script.
-
-"# ARCH": questa variabile contiene la stringa di output del comando "uname -a" che restituisce informazioni sull'architettura del sistema operativo.
-
-"# CPU PHYSICAL": questa variabile contiene il numero di CPU fisiche presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "physical id" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
-
-"# CPU VIRTUAL": questa variabile contiene il numero di CPU virtuali presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "processor" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
-
-"# RAM": questa sezione raccoglie informazioni sulla memoria RAM. La variabile "ram_total" contiene la quantità totale di RAM installata nel sistema, ottenuta dal comando "free --mega" e filtrata con il comando "awk". La variabile "ram_use" contiene la quantità di RAM attualmente utilizzata. La variabile "ram_percent" contiene la percentuale di RAM utilizzata.
-
-"# DISK": questa sezione raccoglie informazioni sulle unità di disco presenti nel sistema. La variabile "disk_total" contiene la quantità totale di spazio disponibile sui dischi, ottenuta dal comando "df -m" e filtrata con il comando "awk". La variabile "disk_use" contiene la quantità di spazio attualmente utilizzata. La variabile "disk_percent" contiene la percentuale di spazio utilizzato.
-
-"# CPU LOAD": questa sezione raccoglie informazioni sulla cpu. La variabile "cpu_fin" contiene la percentuale di utilizzo della CPU approssimata a una cifra decimale.
-
-"# LAST BOOT": questa variabile contiene la data e l'ora dell'ultimo avvio del sistema. Per ottenere questa informazione, lo script cerca la stringa "system" nel file /var/log/wtmp e utilizza il comando "awk" per estrarre la data e l'ora.
-
-"# LVM USE": questa variabile indica se il sistema utilizza la gestione logica dei volumi (LVM) per la gestione dello spazio su disco. Se il sistema utilizza LVM, la variabile è impostata su "yes", altrimenti su "no". Per determinare se il sistema utilizza LVM, lo script utilizza il comando "lsblk" per visualizzare le informazioni sui dispositivi di blocco, quindi cerca la stringa "lvm" e conta il numero di occorrenze trovate.
-
-"# TCP CONNECTIONS": questa variabile contiene il numero di connessioni TCP in stato ESTABLISHED nel sistema. Per ottenere questa informazione, lo script utilizza il comando "ss" per visualizzare le informazioni sulle connessioni di rete, quindi cerca la stringa "ESTAB" e conta il numero di occorrenze trovate.
-
-"# USER LOG": questa variabile contiene il numero di utenti connessi al sistema. Per ottenere questa informazione, lo script utilizza il comando "users" per visualizzare i nomi degli utenti connessi, quindi conta il numero di parole trovate con il comando "wc -w".
-
-"# NETWORK": questa sezione raccoglie informazioni sulla rete. La variabile "ip" contiene l'indirizzo IP del sistema, ottenuto dal comando "hostname -I". La variabile "mac" contiene l'indirizzo MAC dell'interfaccia di rete, ottenuto dal comando "ip link".
-
-"# SUDO": questa variabile contiene il numero di comandi eseguiti con il comando "sudo" nel sistema. Per ottenere questa informazione, lo script utilizza il comando "journalctl" per visualizzare il log di sistema, quindi cerca la stringa "COMMAND" e conta il numero di occorrenze trovate.
-
-"wall": questo comando visualizza il messaggio a video utilizzando il comando "wall". Il messaggio contiene le informazioni raccolte dalle variabili precedenti, formattate in modo da essere facilmente leggibili.
-
-<h3>Che cos'è il comando awk?</h3>
-Awk è un potente strumento di manipolazione di testo che viene utilizzato principalmente per l'estrazione e l'elaborazione di dati strutturati in file di testo. Awk è stato sviluppato originariamente presso i laboratori Bell di AT&T e il nome "awk" deriva dalle iniziali dei nomi dei suoi creatori: Alfred Aho, Peter Weinberger e Brian Kernighan.
-
-Awk legge il file di input riga per riga e applica un insieme di regole specificate dall'utente, chiamate "pattern-action", per elaborare i dati. I pattern sono espressioni regolari che corrispondono a un certo tipo di righe nel file di input, mentre l'action definisce l'azione da eseguire su tali righe. L'azione può includere l'elaborazione dei dati, la stampa di output e la manipolazione delle variabili di Awk.
-
-Awk è molto flessibile e può essere utilizzato per eseguire molte operazioni comuni di elaborazione di dati, come l'ordinamento, l'aggregazione, il filtraggio e la trasformazione. È anche molto utile per elaborare grandi quantità di dati e per automatizzare il lavoro ripetitivo su file di testo.
-
-In sintesi, il comando "awk" è uno strumento di linea di comando che permette di manipolare file di testo in modo potente e flessibile, utilizzando espressioni regolari e regole personalizzate.
