@@ -1,17 +1,18 @@
-<h1> 🇮🇹 Appunti </h1>
+
+# 🇮🇹 Appunti 
 
 <h6>Se pensi che ció che leggi ti sia di aiuto, considera di lasciare una stella ⭐ (trovi il tasto in alto a destra della pagina).
 La stella serve anche a far sí che questi Appunti raggiungano un piú ampio numero di studenti bisognosi!</h6>
 <h3>Che cos'è una Virtual Machine?</h3>
-Una Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.
+<p>Una Virtual Machine (VM) è un software che crea un ambiente virtuale all'interno di un sistema operativo ospite in modo da consentire l'esecuzione di un sistema operativo ospite separato. In altre parole, una VM è un'istanza isolata di un sistema operativo completo, compresi i file di sistema, le applicazioni e le librerie, che viene eseguita all'interno di un altro sistema operativo ospite.</p>
 
-Questo ambiente, chiamato "macchina virtuale", viene creato dal software di virtualizzazione intercettando l'accesso a determinati componenti hardware e determinate funzionalità. Il computer fisico viene solitamente chiamato "host", mentre la macchina virtuale viene spesso chiamata "guest". La maggior parte del codice guest viene eseguito senza modifiche direttamente sul computer host e il sistema operativo guest "pensa" di essere in esecuzione su una macchina reale.
+<p>Questo ambiente, chiamato "macchina virtuale", viene creato dal software di virtualizzazione intercettando l'accesso a determinati componenti hardware e determinate funzionalità. Il computer fisico viene solitamente chiamato "host", mentre la macchina virtuale viene spesso chiamata "guest". La maggior parte del codice guest viene eseguito senza modifiche direttamente sul computer host e il sistema operativo guest "pensa" di essere in esecuzione su una macchina reale.</p>
 
-Le VM consentono ai programmatori di testare il software in un ambiente controllato e separato, senza dover installare un sistema operativo separato su un hardware fisico dedicato. Le VM sono utilizzate anche per la virtualizzazione del server, in cui una singola macchina fisica viene suddivisa in più VM per aumentare l'utilizzo delle risorse del server.
+<p>Le VM consentono ai programmatori di testare il software in un ambiente controllato e separato, senza dover installare un sistema operativo separato su un hardware fisico dedicato. Le VM sono utilizzate anche per la virtualizzazione del server, in cui una singola macchina fisica viene suddivisa in più VM per aumentare l'utilizzo delle risorse del server.</p>
 
-Le VM possono essere utilizzate anche per l'isolamento e la sicurezza, in cui il software viene eseguito all'interno di una VM che limita l'accesso alle risorse del sistema ospite. In questo modo, se il software nella VM viene compromesso, il sistema operativo ospitante rimane protetto.
+<p>Le VM possono essere utilizzate anche per l'isolamento e la sicurezza, in cui il software viene eseguito all'interno di una VM che limita l'accesso alle risorse del sistema ospite. In questo modo, se il software nella VM viene compromesso, il sistema operativo ospitante rimane protetto.</p>
 
-Ci sono diversi scenari che rendono la virtualizzazione allettante:
+<p>Ci sono diversi scenari che rendono la virtualizzazione allettante:</p>
 
 Supporto del sistema operativo. Con un virtualizzatore come VirtualBox, è possibile eseguire software scritto per un sistema operativo su un altro (ad esempio, software Windows su Linux) senza dover riavviare.
 Consolidamento dell'infrastruttura. Poiché le prestazioni complete dei computer di oggi raramente sono necessarie a tempo pieno, invece di far funzionare molti di questi computer fisici, è possibile "imballare" molte macchine virtuali su pochi host potenti e bilanciare i carichi tra di loro. Ciò può risparmiare molti costi hardware: ad esempio, consolidando molti server in pochi.
@@ -21,25 +22,23 @@ Test e ripristino in caso di disastro. Soprattutto con l'uso degli snapshot, è 
 Lo scopo principale di una Virtual Machine (VM) è quello di creare un ambiente virtuale che emuli un intero sistema informatico, incluso il sistema operativo, le applicazioni e le librerie, all'interno di un altro sistema operativo ospite. Ciò consente di eseguire più sistemi operativi su un singolo sistema fisico, consentendo l'isolamento e la gestione delle risorse del sistema, come CPU, RAM, storage e rete.
 
 Ci sono molte ragioni per utilizzare una VM, tra cui:
-
-Testing: le VM consentono di testare il software in un ambiente controllato, senza dover installare un sistema operativo separato su un hardware dedicato.
-Sviluppo: le VM consentono di creare ambienti di sviluppo separati e isolati per diverse applicazioni e versioni del software.
+- Testing: le VM consentono di testare il software in un ambiente controllato, senza dover installare un sistema operativo separato su un hardware dedicato.
+- Sviluppo: le VM consentono di creare ambienti di sviluppo separati e isolati per diverse applicazioni e versioni del software.
 Consolidamento dei server: le VM possono consolidare più server fisici in un singolo sistema fisico, migliorando l'utilizzo delle risorse e riducendo i costi di gestione.
-Migrazione: le VM possono essere utilizzate per migrare il software da un sistema operativo a un altro, senza dover reinstallare o configurare nuovamente il software.
-Sicurezza: le VM possono essere utilizzate per l'isolamento e la sicurezza, in cui il software viene eseguito all'interno di una VM che limita l'accesso alle risorse del sistema ospite.
+- Migrazione: le VM possono essere utilizzate per migrare il software da un sistema operativo a un altro, senza dover reinstallare o configurare nuovamente il software.
+- Sicurezza: le VM possono essere utilizzate per l'isolamento e la sicurezza, in cui il software viene eseguito all'interno di una VM che limita l'accesso alle risorse del sistema ospite.
 
 In sintesi, una VM consente di creare ambienti di lavoro isolati e sicuri, migliorando l'efficienza e la gestione delle risorse del sistema.
 
 <h3>Quali sono le differenze base tra CentOS e Debian come sistemi operativi?</h3>
 CentOS e Debian sono entrambi sistemi operativi basati su Linux, ma ci sono alcune differenze fondamentali tra di loro:
-
-Origine: CentOS è basato su Red Hat Enterprise Linux (RHEL), mentre Debian è stato sviluppato indipendentemente.
-Ciclo di rilascio: CentOS ha un ciclo di rilascio molto più lento rispetto a Debian. CentOS ha una politica di supporto a lungo termine (LTS) e ogni versione è supportata per 10 anni. Debian ha un ciclo di rilascio più rapido e ogni versione ha un supporto di circa 5 anni.
-Gestore di pacchetti: CentOS utilizza il gestore di pacchetti YUM (Yellowdog Updater Modified), mentre Debian utilizza il gestore di pacchetti APT (Advanced Package Tool).
-Comunità di sviluppo: Debian è sviluppato da una comunità di volontari, mentre CentOS è principalmente sviluppato da Red Hat.
-Supporto hardware: CentOS ha un forte supporto per hardware server di fascia alta, mentre Debian ha un supporto più ampio per hardware generico.
-Installazione e configurazione: L'installazione di Debian è generalmente considerata più complessa rispetto a CentOS. Tuttavia, Debian offre una maggiore flessibilità nella configurazione del sistema operativo rispetto a CentOS.
-Stabilità: Entrambi i sistemi operativi sono noti per la loro stabilità e affidabilità, ma CentOS è generalmente considerato il sistema operativo più stabile e affidabile, in particolare per l'uso su server aziendali critici.
+- Origine: CentOS è basato su Red Hat Enterprise Linux (RHEL), mentre Debian è stato sviluppato indipendentemente.
+- Ciclo di rilascio: CentOS ha un ciclo di rilascio molto più lento rispetto a Debian. CentOS ha una politica di supporto a lungo termine (LTS) e ogni versione è supportata per 10 anni. Debian ha un ciclo di rilascio più rapido e ogni versione ha un supporto di circa 5 anni.
+- Gestore di pacchetti: CentOS utilizza il gestore di pacchetti YUM (Yellowdog Updater Modified), mentre Debian utilizza il gestore di pacchetti APT (Advanced Package Tool).
+- Comunità di sviluppo: Debian è sviluppato da una comunità di volontari, mentre CentOS è principalmente sviluppato da Red Hat.
+- Supporto hardware: CentOS ha un forte supporto per hardware server di fascia alta, mentre Debian ha un supporto più ampio per hardware generico.
+- Installazione e configurazione: L'installazione di Debian è generalmente considerata più complessa rispetto a CentOS. Tuttavia, Debian offre una maggiore flessibilità nella configurazione del sistema operativo rispetto a CentOS.
+- Stabilità: Entrambi i sistemi operativi sono noti per la loro stabilità e affidabilità, ma CentOS è generalmente considerato il sistema operativo più stabile e affidabile, in particolare per l'uso su server aziendali critici.
 
 In sintesi, entrambi i sistemi operativi sono robusti e affidabili, ma CentOS è generalmente considerato la scelta migliore per le aziende che cercano una piattaforma stabile e sicura per i loro server, mentre Debian è più flessibile e adatto per gli utenti più avanzati che hanno bisogno di un alto grado di personalizzazione e controllo del loro sistema operativo.
 Che cosa é un SSH service?
@@ -49,12 +48,12 @@ In pratica, SSH consente a un utente di connettersi ad un server remoto in modo 
 
 L'utilizzo di SSH è particolarmente importante per la sicurezza delle connessioni remote, in quanto crittografa il traffico dati scambiato tra i due dispositivi, rendendo impossibile per un malintenzionato intercettare e decodificare i dati trasmessi. Inoltre, SSH offre anche una varietà di funzionalità utili, come la copia sicura di file e la gestione delle chiavi di accesso.
 
-Controlla che il SSH service é avviato.
+**Controlla che il SSH service é avviato.**
 
-root@misidori42:/home/misidori# sudo service ssh status
-● ssh.service - OpenBSD Secure Shell server
-     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
-     Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago
+>root@misidori42:/home/misidori# sudo service ssh status
+>● ssh.service - OpenBSD Secure Shell server
+>     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+>     Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago
        Docs: man:sshd(8)
              man:sshd_config(5)
     Process: 33866 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
