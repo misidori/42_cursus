@@ -12,11 +12,10 @@ La stella serve anche a far sí che questi Appunti raggiungano un piú ampio num
 
 <p>Le VM possono essere utilizzate anche per l'isolamento e la sicurezza, in cui il software viene eseguito all'interno di una VM che limita l'accesso alle risorse del sistema ospite. In questo modo, se il software nella VM viene compromesso, il sistema operativo ospitante rimane protetto.</p>
 
-<p>Ci sono diversi scenari che rendono la virtualizzazione allettante:</p>
-
-Supporto del sistema operativo. Con un virtualizzatore come VirtualBox, è possibile eseguire software scritto per un sistema operativo su un altro (ad esempio, software Windows su Linux) senza dover riavviare.
+Ci sono diversi scenari che rendono la virtualizzazione allettante:
+<br>Supporto del sistema operativo. Con un virtualizzatore come VirtualBox, è possibile eseguire software scritto per un sistema operativo su un altro (ad esempio, software Windows su Linux) senza dover riavviare.
 Consolidamento dell'infrastruttura. Poiché le prestazioni complete dei computer di oggi raramente sono necessarie a tempo pieno, invece di far funzionare molti di questi computer fisici, è possibile "imballare" molte macchine virtuali su pochi host potenti e bilanciare i carichi tra di loro. Ciò può risparmiare molti costi hardware: ad esempio, consolidando molti server in pochi.
-Test e ripristino in caso di disastro. Soprattutto con l'uso degli snapshot, è possibile sperimentare con un ambiente informatico eseguendolo come macchina virtuale. Se qualcosa va storto, è possibile tornare facilmente a uno snapshot precedente e evitare la necessità di frequenti backup e ripristini.
+Test e ripristino in caso di disastro. Soprattutto con l'uso degli snapshot, è possibile sperimentare con un ambiente informatico eseguendolo come macchina virtuale. Se qualcosa va storto, è possibile tornare facilmente a uno snapshot precedente e evitare la necessità di frequenti backup e ripristini.</br>
 
 <h3>Qual è lo scopo di una Virtual Machine?</h3>
 Lo scopo principale di una Virtual Machine (VM) è quello di creare un ambiente virtuale che emuli un intero sistema informatico, incluso il sistema operativo, le applicazioni e le librerie, all'interno di un altro sistema operativo ospite. Ciò consente di eseguire più sistemi operativi su un singolo sistema fisico, consentendo l'isolamento e la gestione delle risorse del sistema, come CPU, RAM, storage e rete.
