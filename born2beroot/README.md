@@ -326,7 +326,7 @@ Vediamo il codice passo per passo:
 #!/bin/bash
 questa è la dichiarazione del tipo di shell che verrà utilizzata per eseguire lo script.
 
-# ARCH
+# ARCH\n\n
 arch=$(uname -a)
 Questa variabile contiene la stringa di output del comando "uname -a" che restituisce informazioni sull'architettura del sistema operativo.
 
