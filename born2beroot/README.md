@@ -51,9 +51,9 @@ L'utilizzo di SSH è particolarmente importante per la sicurezza delle connessio
 **Controlla che il SSH service é avviato.**
 
 >root@misidori42:/home/misidori# sudo service ssh status
->● ssh.service - OpenBSD Secure Shell server
->     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
->     Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago
        Docs: man:sshd(8)
              man:sshd_config(5)
     Process: 33866 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
