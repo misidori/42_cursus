@@ -50,24 +50,25 @@ L'utilizzo di SSH è particolarmente importante per la sicurezza delle connessio
 
 **Controlla che il SSH service é avviato.**
 
->root@misidori42:/home/misidori# sudo service ssh status
-● ssh.service - OpenBSD Secure Shell server
-     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
-     Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago
-       Docs: man:sshd(8)
-             man:sshd_config(5)
-    Process: 33866 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
-   Main PID: 33867 (sshd)
-      Tasks: 1 (limit: 1125)
-     Memory: 2.4M
-        CPU: 45ms
-     CGroup: /system.slice/ssh.service
-             └─33867 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
-
-Feb 27 04:33:07 misidori42 systemd[1]: Starting OpenBSD Secure Shell server...
-Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on 0.0.0.0 port 4242.
-Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on :: port 4242.
-Feb 27 04:33:07 misidori42 systemd[1]: Started OpenBSD Secure Shell server.
+<<<<<<< HEAD
+>root@misidori42:/home/misidori# sudo service ssh status<br>
+● ssh.service - OpenBSD Secure Shell server<br>
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)<br>
+    Active: active (running) since Mon 2023-02-27 04:33:07 CET; 44min ago<br>
+       Docs: man:sshd(8)<br>
+             man:sshd_config(5)<br>
+    Process: 33866 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)<br>
+   Main PID: 33867 (sshd)<br>
+      Tasks: 1 (limit: 1125)<br>
+     Memory: 2.4M<br>
+        CPU: 45ms<br>
+     CGroup: /system.slice/ssh.service<br>
+             └─33867 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups<br>
+<br>
+Feb 27 04:33:07 misidori42 systemd[1]: Starting OpenBSD Secure Shell server...<br>
+Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on 0.0.0.0 port 4242.<br>
+Feb 27 04:33:07 misidori42 sshd[33867]: Server listening on :: port 4242.<br>
+Feb 27 04:33:07 misidori42 systemd[1]: Started OpenBSD Secure Shell server.<br>
 
 <h3>Che cos'é un firewall?</h3>
 Un firewall è un software o un hardware che agisce come una barriera di sicurezza tra una rete di computer e Internet. Il suo scopo principale è quello di proteggere la rete bloccando l'accesso non autorizzato da parte di utenti esterni o di programmi dannosi.
