@@ -137,7 +137,7 @@ To                         Action      From
 4242 (v6)                  ALLOW       Anywhere (v6)             
 8080 (v6)                  DENY        Anywhere (v6)
 
-Per eliminare una porta:
+<h4>Per eliminare una porta:</h4>
 sudo ufw delete deny 8080
 root@misidori42:/home/misidori# sudo ufw status
 Status: active
@@ -236,46 +236,46 @@ verrá chiesta la password dell'utente con cui stiamo cercando di loggarci sulla
 #!/bin/bash
 
 \# ARCH
-arch=$(uname -a)
+<br>arch=$(uname -a)
 
-# CPU PHYSICAL
+\# CPU PHYSICAL
 cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
 
-# CPU VIRTUAL
+\# CPU VIRTUAL
 cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
 
-# RAM
+\# RAM
 ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}')
 ram_use=$(free --mega | awk '$1 == "Mem:" {print $3}')
 ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
 
-# DISK
+\# DISK
 disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
 disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
 disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} { disk_t += $2} END {printf("%d"), disk_u/disk_t*100}')
 
-# CPU LOAD
+\# CPU LOAD
 cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}')
 cpu_op=$(expr 100 - $cpul)
 cpu_fin=$(printf "%.1f" %cpu_op)
 
-# LAST BOOT
+\# LAST BOOT
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 
-# LVM USE
+\# LVM USE
 lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 
-# TCP CONNECTIONS
+\# TCP CONNECTIONS
 tcpc=$(ss -ta | grep ESTAB | wc -l)
 
-# USER LOG
+\# USER LOG
 ulog=$(users | wc -w)
 
-# NETWORK
+\# NETWORK
 ip=$(hostname -I)
 mac=$(ip link | grep "link/ether" | awk '{print $2}')
 
-# SUDO
+\# SUDO
 cmnd=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
 
 wall	"	
@@ -326,19 +326,19 @@ Vediamo il codice passo per passo:
 #!/bin/bash
 questa è la dichiarazione del tipo di shell che verrà utilizzata per eseguire lo script.
 
-# ARCH\n\n
+\# ARCH
 arch=$(uname -a)
 Questa variabile contiene la stringa di output del comando "uname -a" che restituisce informazioni sull'architettura del sistema operativo.
 
-# CPU PHYSICAL
+\# CPU PHYSICAL
 cpuf=$(grep "physical id" /proc/cpuinfo | wc -l)
 questa variabile contiene il numero di CPU fisiche presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "physical id" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
 
-# CPU VIRTUAL
+\# CPU VIRTUAL
 cpuv=$(grep "processor" /proc/cpuinfo | wc -l)
 questa variabile contiene il numero di CPU virtuali presenti nel sistema operativo. Per ottenere questa informazione, lo script cerca la stringa "processor" nel file /proc/cpuinfo e conta il numero di occorrenze trovate con il comando "wc -l".
 
-# RAM
+\# RAM
 ram_total=$(free --mega | awk '$1 == "Mem:" {print $2}')
 ram_use=$(free --mega | awk '$1 == "Mem:" {print $3}')
 ram_percent=$(free --mega | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
@@ -347,7 +347,7 @@ La variabile "ram_total" contiene la quantità totale di RAM installata nel sist
 Il comando free --mega restituisce informazioni sulla memoria del sistema. In particolare, l'opzione --mega indica di mostrare i risultati in Megabyte invece di Kilobyte.
 La variabile "ram_use" contiene la quantità di RAM attualmente utilizzata. La variabile "ram_percent" contiene la percentuale di RAM utilizzata.
 
-"#" DISK
+\# DISK
 disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
 disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
 disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} { disk_t += $2} END {printf("%d"), disk_u/disk_t*100}')
@@ -356,7 +356,7 @@ questa sezione raccoglie informazioni sulle unità di disco presenti nel sistema
 END viene utilizzato con il comando awk per eseguire un'operazione (ad esempio, un calcolo o una stampa di output) dopo che awk ha analizzato completamente il file di input. In particolare, il comando awk '{disk_t += $2} END {printf("%.1fGb\n"), disk_t/1024}' viene utilizzato per sommare le dimensioni dei file system individuati dal comando df -m e convertire il risultato da megabyte a gigabyte.
 La variabile "disk_use" contiene la quantità di spazio attualmente utilizzata. La variabile "disk_percent" contiene la percentuale di spazio utilizzato.
 
-# CPU LOAD
+\# CPU LOAD
 cpul=$(vmstat 1 2 | tail -1 | awk '{printf $15}')
 cpu_op=$(expr 100 - $cpul)
 cpu_fin=$(printf "%.1f" %cpu_op)
@@ -365,32 +365,32 @@ Il comando "vmstat 1 2" viene eseguito per leggere le statistiche di memoria 2 v
 Il comando "tail -1" estrae l'ultima riga dell'output di vmstat, ovvero la riga che contiene le statistiche di memoria aggiornate.
 Il comando expr esegue l'aritmetica di shell. In questo caso, l'operazione eseguita è la sottrazione tra il valore 100 e il contenuto della variabile $cpul.
 
-# LAST BOOT
+\# LAST BOOT
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 Il comando who mostra gli utenti attualmente connessi al sistema e l'ultima volta che hanno effettuato il login.
 questa variabile contiene la data e l'ora dell'ultimo avvio del sistema. Per ottenere questa informazione, lo script cerca la stringa "system" nel file /var/log/wtmp e utilizza il comando "awk" per estrarre la data e l'ora.
 L'opzione -b del comando who mostra l'ultima volta che il sistema è stato avviato, ovvero la data e l'ora di boot del sistema.
 
-# LVM USE
+\# LVM USE
 lvmu=$(if [ $(lsblk | grep "lvm" | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 questa variabile indica se il sistema utilizza la gestione logica dei volumi (LVM) per la gestione dello spazio su disco. 
 Se il sistema utilizza LVM, la variabile è impostata su "yes", altrimenti su "no". Per determinare se il sistema utilizza LVM, lo script utilizza il comando "lsblk" (che elenca tutte le unità di archiviazione presenti nel sistema, come dischi rigidi, partizioni, dispositivi USB, ecc.), quindi cerca la stringa "lvm" e conta il numero di occorrenze trovate.
 
-# TCP CONNECTIONS
+\# TCP CONNECTIONS
 tcpc=$(ss -ta | grep ESTAB | wc -l)
 questa variabile contiene il numero di connessioni TCP in stato ESTABLISHED nel sistema. Per ottenere questa informazione, lo script utilizza il comando "ss" per visualizzare le informazioni sulle connessioni di rete, quindi cerca la stringa "ESTAB" e conta il numero di occorrenze trovate.
 ss -ta è un comando che utilizza il comando ss per mostrare tutte le connessioni TCP attive, sia in ingresso che in uscita, inclusi i socket di ascolto. La flag -t specifica che devono essere mostrate solo le connessioni TCP, mentre la flag -a specifica di mostrare anche le connessioni in ascolto.
 
-# USER LOG
+\# USER LOG
 ulog=$(users | wc -w)
 questa variabile contiene il numero di utenti connessi al sistema. Per ottenere questa informazione, lo script utilizza il comando "users" per visualizzare i nomi degli utenti connessi, quindi conta il numero di parole trovate con il comando "wc -w".
 
-# NETWORK
+\# NETWORK
 ip=$(hostname -I)
 mac=$(ip link | grep "link/ether" | awk '{print $2}')
 questa sezione raccoglie informazioni sulla rete. La variabile "ip" contiene l'indirizzo IP del sistema, ottenuto dal comando "hostname -I". La variabile "mac" contiene l'indirizzo MAC dell'interfaccia di rete, ottenuto dal comando "ip link".
 
-# SUDO
+\# SUDO
 cmnd=$(journalctl _COMM=sudo | grep COMMAND | wc -l)
 questa variabile contiene il numero di comandi eseguiti con il comando "sudo" nel sistema. 
 Questo comando è composto da tre parti:
@@ -414,5 +414,3 @@ Broadcast message from user@hostname
 È importante notare che per utilizzare il comando wall è necessario avere i privilegi di amministratore o di superutente.
 
 Il codice è uno script di bash che raccoglie informazioni sul sistema operativo e le visualizza a video tramite il comando "wall".
-
-
