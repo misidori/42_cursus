@@ -347,7 +347,7 @@ La variabile "ram_total" contiene la quantità totale di RAM installata nel sist
 Il comando free --mega restituisce informazioni sulla memoria del sistema. In particolare, l'opzione --mega indica di mostrare i risultati in Megabyte invece di Kilobyte.
 La variabile "ram_use" contiene la quantità di RAM attualmente utilizzata. La variabile "ram_percent" contiene la percentuale di RAM utilizzata.
 
-# DISK
+'# DISK
 disk_total=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_t += $2} END {printf ("%.1fGb\n"), disk_t/1024}')
 disk_use=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} END {print disk_u}')
 disk_percent=$(df -m | grep "/dev/" | grep -v "/boot" | awk '{disk_u += $3} { disk_t += $2} END {printf("%d"), disk_u/disk_t*100}')
