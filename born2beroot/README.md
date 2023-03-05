@@ -31,6 +31,7 @@ In sintesi, una VM consente di creare ambienti di lavoro isolati e sicuri, migli
 
 <h3>Quali sono le differenze base tra CentOS e Debian come sistemi operativi?</h3>
 CentOS e Debian sono entrambi sistemi operativi basati su Linux, ma ci sono alcune differenze fondamentali tra di loro:
+
 - Origine: CentOS è basato su Red Hat Enterprise Linux (RHEL), mentre Debian è stato sviluppato indipendentemente.
 - Ciclo di rilascio: CentOS ha un ciclo di rilascio molto più lento rispetto a Debian. CentOS ha una politica di supporto a lungo termine (LTS) e ogni versione è supportata per 10 anni. Debian ha un ciclo di rilascio più rapido e ogni versione ha un supporto di circa 5 anni.
 - Gestore di pacchetti: CentOS utilizza il gestore di pacchetti YUM (Yellowdog Updater Modified), mentre Debian utilizza il gestore di pacchetti APT (Advanced Package Tool).
