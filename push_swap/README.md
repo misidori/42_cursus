@@ -9,5 +9,7 @@ Il mio progetto push_swap si basa sul motto latimo "Divide et impera".
 <p>Dopodiché ordineró l'unico blocco rimasto in A che conterrá i numeri piú grandi della lista A ee che quindi andrá a costituire le fondamenta dell'ordinamento della lista A. Da qui cominceró a lavorare sull'ultimo blocco inviato in B, andando a cercare il suo valore piú grande, per poi mandarlo in A, fino a che quel blocco non verrá sversato (in ordine decrescente) in A e cosí via finché lo stack B non sará esaurito.
 <p>Con 100 numeri il sistema ordina lo stack A in circa 800 mosse, mentre 500 numeri in circa 7000 mosse. Sta a voi, se vorrete intraprendere questo metodo, ottimizzarlo ancor di piú.</p>
 <p>La sfida é aperta!</p>
+  
+<p>Di sotto una gif che rappresenta il processo tramite il visualizer di: Ilya Kashnitskiy (elijahkash), che potete trovare a questo link: https://github.com/elijahkash/push_swap_gui</p>
 
 ![gif_push_swap](https://github.com/misidori/42_cursus/assets/123883959/4c1ca74f-5c54-480a-9a97-996b80e6a948)
