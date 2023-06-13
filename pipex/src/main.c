@@ -6,7 +6,7 @@
 /*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 13:46:38 by misidori          #+#    #+#             */
-/*   Updated: 2023/06/13 12:11:42 by misidori         ###   ########.fr       */
+/*   Updated: 2023/06/13 12:37:54 by misidori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv, char **envp)
 		ft_strerror_errno();
 	if (pid == 0)
 		child_process(argv, envp, fd_pipe);
-	waitpid(pid, NULL, 0);
 	parent_process(argv, envp, fd_pipe);
 	return (0);
 }
