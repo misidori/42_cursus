@@ -21,3 +21,5 @@ In questo caso aspetterá che le mosse per ordinare i numeri vengano inserite un
 <p>Il checker puó anche essere usato con due flags mutualmente esclusive: -m e -v.</p>
 <p>La flag -m stamperá sul terminale se le mosse inserite ordinano o meno la lista di numeri tramite comunciazione SORTED o NOT SORTED! e stamperá anche il numero delle mosse eseguite in caso positivo.</p>
 <p>La flag -v oltre all'esito dell'ordinamento e il numero delle mosse stampa anche la lista ordinata</p>
+
+<img width="997" alt="Schermata 2023-06-13 alle 11 45 54" src="https://github.com/misidori/42_cursus/assets/123883959/1f29d003-ac1c-42d9-8043-27fde9d82262">
