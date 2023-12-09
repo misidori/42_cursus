@@ -6,7 +6,7 @@
 /*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:38:38 by misidori          #+#    #+#             */
-/*   Updated: 2023/02/19 22:21:24 by misidori         ###   ########.fr       */
+/*   Updated: 2023/12/09 10:45:10 by misidori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,20 @@ char	*ft_strjoin(char *s, char *b)
 	new_str = (char *) malloc(sizeof(char) * (ft_strlen(s) + ft_strlen(b)) + 1);
 	if (!new_str)
 		return (NULL);
-	i = -1;
+	i = 0;
 	if (s)
-		while (s[++i] != '\0')
+	{
+		while (s[i] != '\0')
+		{
 			new_str[i] = s[i];
+			i++;
+		}
+	}
 	j = 0;
 	while (b[j] != '\0')
+	{
 		new_str[i++] = b[j++];
+	}
 	new_str[ft_strlen(s) + ft_strlen(b)] = '\0';
 	free(s);
 	return (new_str);
