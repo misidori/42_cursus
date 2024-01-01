@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:05:05 by misidori          #+#    #+#             */
-/*   Updated: 2023/05/17 20:06:11 by misidori         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:58:23 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,8 @@ typedef struct s_stack
 	int		min;
 	int		middle_number;
 	int		max;
-	int		first_pivot;
-	int		second_pivot;
-	int		third_pivot;
-	int		fourth_pivot;
-	int		fifth_pivot;
-	int		sixth_pivot;
-	int		seventh_pivot;
-	int		eighth_pivot;
-	int		ninth_pivot;
-	int		tenth_pivot;
-	int		eleventh_pivot;
+	int		n_pivots;
+	int		*pivot;
 
 	t_node	*node;
 	t_node	*head;
@@ -55,6 +46,7 @@ typedef struct s_program
 	t_stack	*stack_copy;
 }	t_program;
 
+void			ft_get_n_pivot(t_program *program, int i);
 void			ft_fill_stack(t_program *program, int argc, char **argv);
 int				ft_fill_stack_in_brackets(t_program *program, int argc,
 					char **argv);
@@ -110,21 +102,10 @@ void			ft_move_up_and_push_the_biggest_number_stack_b(
 					t_program *program);
 void			ft_move_chunk(t_program *program, int pivot);
 void			ft_get_middle_number(t_stack *stack_a);
-void			ft_get_first_pivot_number(t_program *program);
-void			ft_get_second_pivot_number(t_program *program);
-void			ft_get_third_pivot_number(t_program *program);
-void			ft_get_fourth_pivot_number(t_program *program);
-void			ft_get_fifth_pivot_number(t_program *program);
-void			ft_get_sixth_pivot_number(t_program *program);
-void			ft_get_seventh_pivot_number(t_program *program);
-void			ft_get_eighth_pivot_number(t_program *program);
-void			ft_get_ninth_pivot_number(t_program *program);
-void			ft_get_tenth_pivot_number(t_program *program);
-void			ft_get_eleventh_pivot_number(t_program *program);
 void			ft_free_stack(t_stack *stack);
 void			ft_free_stacks(t_program *program);
 char			**ft_read_stack_in_brackets(char *argv);
-int				ft_array_height(char **array);
+int				ft_size_array(char **array);
 void			ft_free_memory_array_numbers(char **array);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 17:20:15 by misidori          #+#    #+#             */
-/*   Updated: 2023/05/17 20:52:37 by misidori         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:58:23 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_fill_stack_in_brackets(t_program *program, int argc, char **argv)
 	i = 0;
 	program->flag = 0;
 	ft_check_input_errors(argv);
-	argc = ft_array_height(argv);
+	argc = ft_size_array(argv);
 	while (i < argc)
 	{
 		inserted_value = ft_atoi_push_swap(argv[i]);
@@ -64,6 +64,10 @@ void	ft_sort(int argc, t_program *program)
 	static int	counter_pb;
 
 	counter_pb = 0;
+	if (argc < 120)
+		program->stack_a->n_pivots = 6;
+	else
+		program->stack_a->n_pivots = 12;
 	ft_check_sorted(program);
 	ft_check_one_move_win(program->stack_a);
 	if (argc == 2)

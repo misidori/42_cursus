@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: misidori <misidori@student.42.fr>          +#+  +:+       +#+         #
+#    By: matteo <matteo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 02:00:30 by misidori          #+#    #+#              #
-#    Updated: 2023/12/01 15:08:30 by misidori         ###   ########.fr        #
+#    Updated: 2024/01/01 19:24:00 by matteo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,9 @@ LIGHT_GREEN			=	\033[38;5;10;48;5;15m
 RESET				=	\033[0m
 
 # File sorgenti e oggetto
-SRC = $(wildcard $(SRC_DIR)/*.c)
-SRC_CHK = $(wildcard $(CHK_SRC_DIR)/*.c)
-OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
+SRC		= $(wildcard $(SRC_DIR)/*.c)
+SRC_CHK	= $(wildcard $(CHK_SRC_DIR)/*.c)
+OBJ		= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 CHK_OBJ	= $(patsubst $(CHK_SRC_DIR)/%.c,$(CHK_OBJ_DIR)/%.o,$(SRC_CHK))
 
 all: libs $(OBJ_DIR) $(LIBRARY) $(EXECUTABLE)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:27:25 by misidori          #+#    #+#             */
-/*   Updated: 2023/05/17 20:11:44 by misidori         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:56:58 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,35 +63,33 @@ void	ft_move_chunk(t_program *program, int pivot)
 
 static void	ft_assign_pivot_numbers(t_program *program)
 {
+	int	i;
+
+	i = 0;
 	program->stack_copy = ft_copy_stack(program->stack_a);
 	ft_sort_stack_through_swap(program->stack_copy);
-	ft_get_first_pivot_number(program);
-	ft_get_second_pivot_number(program);
-	ft_get_third_pivot_number(program);
-	ft_get_fourth_pivot_number(program);
-	ft_get_fifth_pivot_number(program);
-	ft_get_sixth_pivot_number(program);
-	ft_get_seventh_pivot_number(program);
-	ft_get_eighth_pivot_number(program);
-	ft_get_ninth_pivot_number(program);
-	ft_get_tenth_pivot_number(program);
-	ft_get_eleventh_pivot_number(program);
+	program->stack_copy->size = ft_len_stack(program->stack_copy);
+	program->stack_a->pivot = (int *) \
+		malloc(sizeof(int) * program->stack_a->n_pivots);
+	while (i < program->stack_a->n_pivots)
+	{
+		ft_get_n_pivot(program, i);
+		i++;
+	}
 	ft_free_stack(program->stack_copy);
 }
 
 void	ft_sort_big_numbers(t_program *program, int counter_pb)
 {
+	int	i;
+
+	i = 0;
 	ft_assign_pivot_numbers(program);
-	ft_move_chunk(program, program->stack_a->first_pivot);
-	ft_move_chunk(program, program->stack_a->second_pivot);
-	ft_move_chunk(program, program->stack_a->third_pivot);
-	ft_move_chunk(program, program->stack_a->fourth_pivot);
-	ft_move_chunk(program, program->stack_a->fifth_pivot);
-	ft_move_chunk(program, program->stack_a->sixth_pivot);
-	ft_move_chunk(program, program->stack_a->seventh_pivot);
-	ft_move_chunk(program, program->stack_a->eighth_pivot);
-	ft_move_chunk(program, program->stack_a->ninth_pivot);
-	ft_move_chunk(program, program->stack_a->tenth_pivot);
-	ft_move_chunk(program, program->stack_a->eleventh_pivot);
+	while (i < program->stack_a->n_pivots)
+	{
+		ft_move_chunk(program, program->stack_a->pivot[i]);
+		i++;
+	}
+	free(program->stack_a->pivot);
 	ft_sort_stacks(program, counter_pb);
 }

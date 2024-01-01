@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_stack_in_brackets.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 20:51:26 by misidori          #+#    #+#             */
-/*   Updated: 2023/05/12 19:11:21 by misidori         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:58:23 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_read_stack_in_brackets(char *argv)
 	return (array_numbers);
 }
 
-int	ft_array_height(char **array_numbers)
+int	ft_size_array(char **array_numbers)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ void	ft_free_memory_array_numbers(char **array_numbers)
 	int	i;
 
 	i = 0;
-	while (i < ft_array_height(array_numbers))
+	while (i < ft_size_array(array_numbers))
 	{
 		free(array_numbers[i]);
 		i++;

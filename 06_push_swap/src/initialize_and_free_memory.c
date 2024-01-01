@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize_and_free_memory.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:33:19 by misidori          #+#    #+#             */
-/*   Updated: 2023/05/17 19:54:08 by misidori         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:22:31 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,6 @@ void	ft_initialize_variables(t_stack *stack)
 	stack->reverse_sorted = ft_is_reverse_sorted(stack);
 	ft_find_min_and_max_numbers(stack);
 	ft_get_middle_number(stack);
-	stack->first_pivot = 0;
-	stack->second_pivot = 0;
-	stack->third_pivot = 0;
-	stack->fourth_pivot = 0;
-	stack->fifth_pivot = 0;
-	stack->sixth_pivot = 0;
-	stack->seventh_pivot = 0;
-	stack->eighth_pivot = 0;
-	stack->ninth_pivot = 0;
-	stack->tenth_pivot = 0;
-	stack->eleventh_pivot = 0;
 }
 
 void	ft_free_stack(t_stack *stack)
