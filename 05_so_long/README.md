@@ -1,3 +1,11 @@
+<h1>🇮🇹 Italian</h1>
+
+Il progetto ```so_long``` è il primo gioco che ho realizzato nella 42. È un progetto divertente, poiché ti permette di utilizzare risorse grafiche e animazioni. La parte principale del tuo programma sarà la comunicazione con la libreria MLX, effettuare il parsing della mappa e gestione della memoria.
+
+<h1>🇬🇧 English</h1>
+
+The ```so_long``` project is the first game i made in 42. It’s a fun project, as it allows you to use graphical assets and animations. The main part of your program will be communicating with the MLX library, do the parsing of the map and memory handling.
+
 <h3>METODO 👨‍🎓</h3>
 <p>Il mio progetto so_long legge una mappa testuale passata come argomento, la scansiona e scansiona ad ogni lettera o cifra trovata una immagine corrispondente. Dopo ogni movimento andrá a rifare la scansione della mappa comn conseguente visualizzazione grafica. Obiettivo del gioco é raccogliere tutti gli oggetti (da ora in poi "collezionabili"), evitare di entrare in contatto con il nemico ed uscire dalla porta.</p>
 
