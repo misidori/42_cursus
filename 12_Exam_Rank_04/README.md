@@ -1,12 +1,5 @@
 # Exam Question
 
-This exam has 1 question, microshell:
-
-- [Microshell.c](https://github.com/pasqualerossi/42-School-Exam-Rank-04/blob/main/microshell.c)
-- [Microshell.h](https://github.com/pasqualerossi/42-School-Exam-Rank-04/blob/main/microshell.h)
-
-if you can make this code shorter, but readable, let me know!
-
 <br>
 
 ## Excepted Files
