@@ -1,3 +1,7 @@
+<h1>🇮🇹 Italian</h1>
+
+Il progetto ```push_swap``` prevede l’ordinamento dei dati su uno stack, con un set limitato di istruzioni, utilizzando il minor numero possibile di azioni1. Il gioco è composto da 2 stack denominati ```a``` e ```b```. L’obiettivo è ordinare in ordine crescente i numeri nello stack ```a```. Per fare ciò, hai a disposizione le seguenti operazioni: ```sa```, ```sb```, ```ss```, ```pa```, ```pb```, ```ra```, ```rb```, ```rr```, ```rra```, ```rrb```, ```rrr```.
+
 <h3>METODO 👨‍🎓</h3>
 Il mio progetto push_swap si basa sul motto latino "Divide et impera".
 <p>L'obiettivo é scomporre la lista in blocchi ed ordinarli progressivamente, cosí da avere degli spazi di "navigazione" (quando vado a cercare i numeri) piú piccoli, facendo meno mosse.</p>
@@ -11,5 +15,10 @@ Il mio progetto push_swap si basa sul motto latino "Divide et impera".
 <p>La sfida é aperta!</p>
   
 <p>Di sotto una gif che rappresenta il processo tramite il visualizer di Ilya Kashnitskiy (elijahkash), che potete trovare a questo link: https://github.com/elijahkash/push_swap_gui</p>
+
+<h1>🇬🇧 English</h1>
+
+The “push_swap” project is a project in the 42 school curriculum that involves sorting data on a stack, with a limited set of instructions, using the smallest number of actions. The game is composed of 2 stacks named ```a``` and ```b```. The goal is to sort in ascending order numbers into ```a```. To do so, you can use this set of movements: ```sa```, ```sb```, ```ss```, ```pa```, ```pb```, ```ra```, ```rb```, ```rr```, ```rra```, ```rrb```, ```rrr```.
+
 
 ![gif_push_swap](https://github.com/misidori/42_cursus/assets/123883959/4c1ca74f-5c54-480a-9a97-996b80e6a948)
