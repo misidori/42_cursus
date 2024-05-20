@@ -1,7 +1,5 @@
 # Exam Question
 
-<br>
-
 ## Excepted Files
 
 - microshell.c
