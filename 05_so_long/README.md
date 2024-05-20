@@ -1,6 +1,6 @@
 <h1>🇮🇹 Italian</h1>
 
-<p>Il progetto ```so_long``` è il primo gioco che ho realizzato nella 42. È un progetto divertente, poiché ti permette di utilizzare risorse grafiche e animazioni. La parte principale del tuo programma sarà la comunicazione con la libreria MLX, effettuare il parsing della mappa e gestione della memoria.</p>
+<p>Il progetto so_long è il primo gioco che ho realizzato nella 42. È un progetto divertente, poiché ti permette di utilizzare risorse grafiche e animazioni. La parte principale del tuo programma sarà la comunicazione con la libreria MLX, effettuare il parsing della mappa e gestione della memoria.</p>
 
 <h3>METODO 👨‍🎓</h3>
 <p>Il mio progetto so_long legge una mappa testuale passata come argomento, la scansiona e scansiona ad ogni lettera o cifra trovata una immagine corrispondente. Dopo ogni movimento andrá a rifare la scansione della mappa comn conseguente visualizzazione grafica. Obiettivo del gioco é raccogliere tutti gli oggetti (da ora in poi "collezionabili"), evitare di entrare in contatto con il nemico ed uscire dalla porta.</p>
@@ -13,7 +13,7 @@
 
 <h1>🇬🇧 English</h1>
 
-<p>The ```so_long``` project is the first game i made in 42. It’s a fun project, as it allows you to use graphical assets and animations. The main part of your program will be communicating with the MLX library, do the parsing of the map and memory handling.</p>
+<p>The so_long project is the first game i made in 42. It’s a fun project, as it allows you to use graphical assets and animations. The main part of your program will be communicating with the MLX library, do the parsing of the map and memory handling.</p>
 
 <h3>METHOD 👨‍🎓</h3>
 My so_long project reads a text map passed as an argument, scans it and for each letter or digit found, it scans a corresponding image. After each movement, it will rescan the map with the consequent graphic display. The goal of the game is to collect all the objects (from now on “collectibles”), avoid coming into contact with the enemy and exit through the door.
