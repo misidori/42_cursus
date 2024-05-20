@@ -15,7 +15,7 @@ The project ```pipex``` involves understanding shell redirections and pipes, by 
 
 <h3>METHOD 👨‍🎓</h3>
 
-My ```pipex``` project uses two processes that communicate through the pipe() function.
+My ```pipex``` project uses two processes that communicate through the ```pipe()``` function.
 <br></br>
 The ```child process``` is responsible for reading the information from the input file, executing the command, and communicating the result to the pipe’s input.
 The ```parent process``` is responsible for reading the result of the first command from the pipe’s output, processing it by executing the second command, and printing it to the outfile.
