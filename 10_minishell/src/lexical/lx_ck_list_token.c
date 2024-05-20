@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lx_ck_list_token.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: misidori <misidori@student.42.fr>          +#+  +:+       +#+        */
+/*   By: matteo <matteo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 19:29:04 by afalconi          #+#    #+#             */
-/*   Updated: 2023/11/30 16:22:32 by misidori         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:44:39 by matteo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	lx_therd_token_ck(char token, char *old_token)
 		*old_token = token;
 		return (0);
 	}
-	else if (token == AND || token == PIPE || token == OR)
+	if (token == AND || token == PIPE || token == OR)
 	{
 		if (*old_token == PIPE || *old_token == OR || *old_token == AND)
 		{
@@ -46,7 +46,7 @@ static int	lx_second_token_ck(char token, char *old_token)
 		*old_token = token;
 		return (-1);
 	}
-	else if (token == CL_S)
+	if (token == CL_S)
 	{
 		if (*old_token == AND || *old_token == OR || *old_token == PIPE
 			|| *old_token == OP_S)
@@ -77,13 +77,14 @@ static int	lx_all_token_ck(char token, int flag)
 			return (-1);
 		return (0);
 	}
-	else if (token == CMD || token == ARG)
+	if (token == CMD || token == ARG)
 	{
-		old_token = token;
 		if (old_token == CL_S)
 		{
+			old_token = token;
 			return (-1);
 		}
+		old_token = token;
 		return (0);
 	}
 	return (lx_second_token_ck(token, &old_token));

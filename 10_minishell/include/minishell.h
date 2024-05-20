@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 23:16:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/12/01 19:28:16 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/12/09 20:45:36 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 # include "./libraries.h"
 # include "./structures.h"
 
-# define AND	0
-# define OR		1
+# define AND	1
+# define OR		2
 # define PIPE	'|'
-# define CMD	2
-# define ARG	3
+# define CMD	3
+# define ARG	4
 # define INP	'<'
-# define HDOC	4
+# define HDOC	5
 # define OUT	'>'
-# define APP	5
+# define APP	6
 # define OP_S	'('
 # define CL_S	')'
 
